@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body{
+    
+    overflow-x: hidden;
+  scrollbar-width: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  -webkit-user-select: none;
+ 
+  }
+
+  html{
+    overflow-y: overlay;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+   
+  }
+::-webkit-scrollbar{
+    display: none;
+}
+
+h1{
+
+text-align: center;
+background-color: rgb(12, 7, 5);
+color: rgba(240, 248, 255, 0.507);
+font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+.hide{
+
+display: none;
+
+}
+
+.up{
+
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 5%;
+
+}
+
+
+.up2{
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#selbtn{
+
+  width: 45%;
+height: 50px;
+padding: 8px;
+font-size: large;
+font-weight: 900;
+font-family: cursive;
+border-radius: 10px;
+background-image:linear-gradient(to right, rgb(100, 4, 100) , rgb(247, 93, 119)) ;
+text-align: center;
+border: 2px solid black;
+margin-bottom: 5%;
+margin-right: 5%;
+
+}
+
+
+#upbtn{
+
+width: 45%;
+height: 50px;
+padding: 8px;
+font-size: large;
+font-weight: 900;
+font-family: cursive;
+border-radius: 10px;
+background-image:linear-gradient(to right, rgb(100, 4, 100) , rgb(247, 93, 119)) ;
+text-align: center;
+border: 2px solid black;
+margin-bottom: 5%;
+
+}
+
+
+
+.imagesDivStyle{
+
+  width:100% ;
+border: 0px solid rgb(255, 253, 253);
+position: relative;
+margin: auto;
+display: flex;
+justify-content: space-evenly;
+gap: 15px;
+flex-wrap: wrap;
+
+
+}
+
+.imgs{
+
+width: 45%;
+height: 45%;
+
+}
+
+
+
+.box{
+
+background-color: black;
+border-radius: 15px;
+border-width: 2px;
+border-style: inset;
+padding: 5px;
+margin: auto;
+justify-content: center;
+width: 75%;
+text-align: center;
+align-items: center;
+justify-items: center;
+margin-top: 30%;
+
+}
+
+.inp{
+    margin: auto;
+    display: block;
+border-radius: 6px;
+padding: 5px;
+margin-top: 4%;
+background-color: bisque;
+}
+.inp:hover{
+border-color: palevioletred;
+}
+.next{
+    margin-top: 5%;
+    width: 50%;
+    font-size: large;
+    background-color: palevioletred ;
+    border-radius: 10px;
+  border-color: azure;
+}
+#h1{
+    text-align: center;
+    color: rgba(240, 248, 255, 0.507);
+}
+#hide{
+  display: none;
+}
