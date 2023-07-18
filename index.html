@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+           <title>  Unlimited Storage </title>
+           <meta charset="UTF-8">
+            <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+          <meta name="description" content="Schedule Order|| Order placing || Laundry||Wash + Iron Page || Laundry Walaa|| Cleaning || Washing || Low cost cleaning services|| Laundry Services at Kharagpur.Ironing your clothes and dry cleaning it with proper care and at reasonable rates to make you feel and give a posche effect and flavour.These works are done at Laundry Walaa service centre at Kharagpur , which will be expanded soon.">
+          <meta name="viewport" content="width=device-width , initial-scale=1.0, user-scalable = 0">
+          <style type="text/css">
+
+      
+       
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body{
+    
+    overflow-x: hidden;
+  scrollbar-width: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  -webkit-user-select: none;
+ 
+  }
+
+  html{
+    overflow-y: overlay;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+   
+  }
+::-webkit-scrollbar{
+    display: none;
+}
+
+h1{
+
+text-align: center;
+background-color: rgb(12, 7, 5);
+color: rgba(240, 248, 255, 0.507);
+font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+.hide{
+
+display: none;
+
+}
+
+.up{
+
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 5%;
+
+}
+
+
+.up2{
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#selbtn{
+
+  width: 45%;
+height: 50px;
+padding: 8px;
+font-size: large;
+font-weight: 900;
+font-family: cursive;
+border-radius: 10px;
+background-image:linear-gradient(to right, rgb(100, 4, 100) , rgb(247, 93, 119)) ;
+text-align: center;
+border: 2px solid black;
+margin-bottom: 5%;
+margin-right: 5%;
+
+}
+
+
+#upbtn{
+
+width: 45%;
+height: 50px;
+padding: 8px;
+font-size: large;
+font-weight: 900;
+font-family: cursive;
+border-radius: 10px;
+background-image:linear-gradient(to right, rgb(100, 4, 100) , rgb(247, 93, 119)) ;
+text-align: center;
+border: 2px solid black;
+margin-bottom: 5%;
+
+}
+
+
+
+.imagesDivStyle{
+
+  width:100% ;
+border: 0px solid rgb(255, 253, 253);
+position: relative;
+margin: auto;
+display: flex;
+justify-content: space-evenly;
+gap: 15px;
+flex-wrap: wrap;
+
+
+}
+
+.imgs{
+
+width: 45%;
+height: 45%;
+
+}
+
+
+
+.box{
+
+background-color: black;
+border-radius: 15px;
+border-width: 2px;
+border-style: inset;
+padding: 5px;
+margin: auto;
+justify-content: center;
+width: 75%;
+text-align: center;
+align-items: center;
+justify-items: center;
+margin-top: 30%;
+
+}
+
+.inp{
+    margin: auto;
+    display: block;
+border-radius: 6px;
+padding: 5px;
+margin-top: 4%;
+background-color: bisque;
+
+
+}
+
+.inp:hover{
+
+border-color: palevioletred;
+
+}
+
+
+.next{
+
+    margin-top: 5%;
+    width: 50%;
+    font-size: large;
+    background-color: palevioletred ;
+    border-radius: 10px;
+  border-color: azure;
+
+}
+
+#h1{
+    text-align: center;
+    color: rgba(240, 248, 255, 0.507);
+}
+
+
+#hide{
+  display: none;
+}
+
+
+
+</style>
+
+        </head>
+
+        <body>
+
+
+          <div class="box" id="unhide">
+
+            <h1 id="h1">Login/SignUp</h1>
+
+            <input type="text" placeholder="Name" class="inp" id="nameInp" />
+            <input type="tel" placeholder="Mobile-No" class="inp" id="mobInp"  />
+
+            <button type="submit" class="next" id="next">Proceed</button>
+
+        </div>
+
+
+
+        <div id="hide">
+
+
+<h1>Unlimited Storage</h1>
+
+
+<div class="up">
+  <button id="selbtn">Select Files</button>
+<button id="upbtn">Upload Files</button>
+</div>
+
+<div class="up2"><label id="loadlab"></label></div>
+
+<div>
+  <p>For Getting all the images privately contact: +917550894302</p>
+</div>
+
+<div id="imagesDiv"></div>
+
+
+</div>
+
+
+<script type="module">
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyByotZ25hk_X6CgcS-TMYmzHzGZBXhUmkU",
+    authDomain: "unlimited-storage24.firebaseapp.com",
+    projectId: "unlimited-storage24",
+    storageBucket: "unlimited-storage24.appspot.com",
+    messagingSenderId: "1067181529757",
+    appId: "1:1067181529757:web:33e83fc03045f78f85d274",
+    measurementId: "G-JVKE42W6XH"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  
+  import {getStorage , ref as sRef,uploadBytesResumable, getDownloadURL }
+                         from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js";
+
+
+                         import{ getDatabase, ref, set, child, get}
+            from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    
+            const database = getDatabase();
+
+
+            const name = document.getElementById("nameInp");
+            const mobile = document.getElementById("mobInp");
+            const submit = document.getElementById("next");
+
+
+
+
+                         var Files = [];
+                         var FileReaders = [];
+                         var ImageLinksArray = [];
+
+                         const imgdiv = document.getElementById("imagesDiv");
+                         const proglab = document.getElementById("loadlab");
+                         const SelBtn = document.getElementById("selbtn");
+                         const UpBtn = document.getElementById("upbtn");
+
+                       
+                                function OpenDialog(){
+
+
+                            let inp = document.createElement('input');
+                            inp.type = 'file';
+                            inp.multiple = 'multiple';
+
+                            inp.onchange = (e) => {
+                              AssignImgsToFilesArray(e.target.files);
+                              CreateImgTags();
+                            }
+
+                            inp.click();
+                        }
+
+
+
+                        function AssignImgsToFilesArray(thefiles){
+
+                             for(let i = 0; i < thefiles.length; i++ ){
+                              Files.push(thefiles[i]);
+                             }
+
+                        }
+
+
+
+                        function CreateImgTags(){
+
+                           imgdiv.innerHTML='';
+                           imgdiv.classList.add('imagesDivStyle');
+
+                           for (let i = 0; i < Files.length; i++) {
+                            FileReaders[i] = new FileReader();
+
+                            FileReaders[i].onload = function(){
+                              var img = document.createElement('img');
+                              img.id = 'imgNo'+i;
+                              img.classList.add('imgs');
+                              img.src= FileReaders[i].result;
+                              imgdiv.append(img);  
+                            }
+
+                        FileReaders[i].readAsDataURL(Files[i]);
+
+                           }
+
+                           let lab = document.getElementById('label');
+                           lab.innerHTML = 'clear images';
+                           lab.style = 'cursor:pointer;display:block;color:navy; font-size:12px';
+                           lab.addEventListener('click', ClearImages);
+                           imgdiv.append(lab);
+                           
+
+                        }
+
+
+                        function ClearImages(){
+                          Files = [];
+                          ImageLinksArray = [];
+                          imgdiv.innerHTML = '';
+                          imgdiv.classList.remove('imagesDivStyle');
+                        }
+
+
+     
+                        function GetImgUploadProgress(){
+                          return 'Images Uploaded' + ImageLinksArray.length + 'of'+ Files.length;
+                        }
+
+                        function IsAllImagesUploaded(){
+                          return ImageLinksArray.length == Files.length;
+                        }
+
+
+                        function RestoreBack(){
+
+                          UpBtn.disabled = false;
+                          SelBtn.disabled = false;
+                          proglab.innerHTML = "";
+
+                        }
+
+                        SelBtn.addEventListener('click', OpenDialog);
+                        UpBtn.addEventListener('click', UploadAllImages);
+
+
+                        function UploadAllImages(){
+
+                          UpBtn.disabled = true;
+                          SelBtn.disabled = true;
+
+                          ImageLinksArray = [];
+
+                          for (let i = 0; i < Files.length; i++) {
+                            UploadAnImage(Files[i], i);
+                          }
+
+                        }
+
+
+                   function UploadAnImage(imgToUpload, imgNo){
+
+                    
+                    const metadata = {
+                      contentType: imgToUpload.type
+                    };
+                    
+                    
+                    const storage = getStorage();
+                    
+                    const ImageAddress = "Images/"+"/img#"+(imgNo+1);
+
+                    const storageRef = sRef(storage, ImageAddress);
+
+                    const UploadTask = uploadBytesResumable(storageRef, imgToUpload,metadata);
+
+                    UploadTask.on('state_changed', (snapshot) =>{
+                      proglab.innerHTML = GetImgUploadProgress();
+                    },
+
+                    (error)=>{
+                      alert("error: image upload failed");
+                    },
+
+                    ()=>{
+                      
+                      getDownloadURL(UploadTask.snapshot.ref).then((downloadURL) => {
+                        ImageLinksArray.push(downloadURL);
+                        if(IsAllImagesUploaded()){
+                          proglab.innerHTML = "All Images Uploaded";
+                          RestoreBack();
+                          write();
+                        }
+                      });
+
+                    }
+                    );
+                   }   
+
+                 
+            function write(){
+const db = getDatabase();
+  set(ref(db, "UsersList/"+ name.value),{
+    Name: name.value,
+    Mobile: mobile.value,
+   ImagesLinks: ImageLinksArray
+  });
+
+}
+
+
+
+document.getElementById("next").addEventListener("click", function(){
+
+      var flag = 1;
+      localStorage.setItem("flag1", flag); 
+
+  document.getElementById("unhide").style.display="none";
+document.getElementById("hide").style.display="block";
+
+})
+
+
+window.onload = function(){
+
+var flag2 = localStorage.getItem("flag1");
+
+if(flag2 == 1){
+  document.getElementById("unhide").style.display="none";
+  document.getElementById("hide").style.display="block";
+}
+
+}
+
+
+            
+
+</script>
+
+
+
+        </body>
+    </html>
